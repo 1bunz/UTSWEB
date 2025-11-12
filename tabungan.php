@@ -87,6 +87,9 @@
     </style>
 </head>
 <body>
+    <P>Nama: Subani Maulana
+        <br>NIM: 202404023
+    </P>
     <h2> Simulasi Perhitungan Tabungan Berjangka</h2>
     <div class="container">
         <form action="" method="GET">
