@@ -94,7 +94,7 @@
     <div class="container">
         <form action="" method="GET">
             <label for="target_nominal">1. Nominal Target Tabungan (Rp):</label>
-            <input type="number" name="target_nominal" id="target_nominal" required min="100000">
+            <input type="number" name="target_nominal" id="target_nominal" min="100000">
             
             <label for="mode">2. Pilih Mode Perhitungan:</label>
             <select name="mode" id="mode" onchange="toggleModeInput()">
@@ -104,7 +104,7 @@
 
             <div id="input_bulan">
                 <label for="bulan_input">Jangka Waktu Tabungan (Bulan):</label>
-                <input type="number" name="bulan_input" id="bulan_input" required min="1">
+                <input type="number" name="bulan_input" id="bulan_input" min="1">
             </div>
 
             <div id="input_setoran" style="display:none;">
@@ -154,7 +154,7 @@
                         $SaldoAkhir = 0;
                         $BulanDibutuhkan = 0;
                         
-                        while ($SaldoAkhir < $TargetNominal && $BulanDibutuhkan < 500) { // Batasi 500 bulan
+                        while ($SaldoAkhir < $TargetNominal && $BulanDibutuhkan < 500) { 
                             $BulanDibutuhkan++;
                             
                             $SaldoAkhir += $InputSetoran;
@@ -208,7 +208,7 @@
                         echo "<td>" . number_format(round($CurrentSaldo), 0, ',', '.') . "</td>";
                         echo "</tr>";
 
-                        if ($Mode == "setoran" && $i == $JangkaWaktu) break; // Hentikan di bulan target
+                        if ($Mode == "setoran" && $i == $JangkaWaktu) break; 
                     }
                     echo "</table>";
                 }
@@ -231,13 +231,9 @@
             if (mode === 'bulan') {
                 inputBulan.style.display = 'block';
                 inputSetoran.style.display = 'none';
-                setoranInput.removeAttribute('required');
-                bulanInput.setAttribute('required', 'required');
             } else {
                 inputBulan.style.display = 'none';
                 inputSetoran.style.display = 'block';
-                bulanInput.removeAttribute('required');
-                setoranInput.setAttribute('required', 'required');
             }
         }
         
